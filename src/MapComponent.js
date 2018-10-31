@@ -17,8 +17,8 @@ export class MapComponent extends Component {
 			const allQuakes = this.props.quakes.map((quake, i) =>{
 				<Marker title={quake.properties.title} 
 					name={quake.properties.place}
-					position={{lat: {quake.geometry.coordinates[0]},
-							lng: {quake.geometry.coordinates[1]}
+					position={{lat: quake.geometry.coordinates[0],
+							lng: quake.geometry.coordinates[1]
 					}}
 					icon={{
 						url: '../public/images/throbber.gif'
@@ -35,5 +35,5 @@ export class MapComponent extends Component {
 }
 
 export default GoogleApiWrapper({
-	apiKey: (AIzaSyBHLett8djBo62dDXj0EjCimF8Rd6E8cxg)
+	apiKey: 'AIzaSyBHLett8djBo62dDXj0EjCimF8Rd6E8cxg'
 })(MapComponent)

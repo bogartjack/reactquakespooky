@@ -3,7 +3,6 @@ import {List, Segment} from 'semantic-ui-react';
 const moment = require('moment');
 
 const QuakeList = (props) =>{
-	render(){
 		const allQuakesList = props.quakes.map((quake, i) =>{
 			const quakePlace = quake.properties.place.slice(10);
 			const now = moment();
@@ -15,7 +14,7 @@ const QuakeList = (props) =>{
 					with a center about {quake.properties.place} <br/>
 					of magnitude {quake.properties.magnitude} <br/>
 					on {quakeTime}, about {elapsed} ago <br/>
-				<List.Item></Segment>
+				</List.Item></Segment>
 			);
 		});
 		return(
@@ -24,7 +23,6 @@ const QuakeList = (props) =>{
 				{allQuakesList}	
 			</div>
 		)
-	}
 }
 
 export default QuakeList;
