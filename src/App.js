@@ -12,9 +12,9 @@ class App extends Component {
 	componentDidMount(){
 		getQuakes().then((data) =>{
 			this.setState({quakes: data});
-		}).catch((err)=>{console.log(err));
+		}).catch((err)=>{console.log(err)});
 	}
-	getQuakes = () =>{
+	getQuakes = async () =>{
 		try{
 			const allQuakes = await fetch('https://earthquake.usgs.gov/earthquakes/feed/v1.0/summary/significant_week.geojson').features;
 			const allQuakesJson = allQuakes.json();
