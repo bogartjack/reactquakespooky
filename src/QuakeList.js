@@ -4,16 +4,16 @@ const moment = require('moment');
 
 const QuakeList = (props) =>{
 		const allQuakesList = props.quakes.map((quake, i) =>{
-			const quakePlace = quake.properties.place.slice(10);
+			const quakePlace = quake.properties.place;
 			const now = moment();
 			const quakeTime = moment(quake.properties.time);
-			const elapsed = (now.millisecond() - quakeTime.millisecond())/(1000*60*60);
+			const elapsed = (quakeTime.fromNow());
 			return(
 				<Segment key={i}><List.Item>
-					The quake occurred in {quakePlace} <br/>
+					The quake occurred at: {quakePlace} <br/>
 					with a center about {quake.properties.place} <br/>
-					of magnitude {quake.properties.magnitude} <br/>
-					on {quakeTime}, about {elapsed} ago <br/>
+					of magnitude {quake.properties.mag} <br/>
+					on {quakeTime.format('MMMM Do YYYY, h:mm:ss a')}, about {elapsed}<br/>
 				</List.Item></Segment>
 			);
 		});

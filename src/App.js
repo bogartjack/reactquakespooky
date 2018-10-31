@@ -16,9 +16,9 @@ class App extends Component {
 	}
 	getQuakes = async () =>{
 		try{
-			const allQuakes = await fetch('https://earthquake.usgs.gov/earthquakes/feed/v1.0/summary/significant_week.geojson').features;
+			const allQuakes = await fetch('https://earthquake.usgs.gov/earthquakes/feed/v1.0/summary/significant_week.geojson');
 			const allQuakesJson = await allQuakes.json();
-			return allQuakesJson;
+			return allQuakesJson.features;
 		}
 		catch(err){
 			console.log(err)

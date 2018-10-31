@@ -15,19 +15,23 @@ export class MapComponent extends Component {
 
 	render(){
 			const allQuakes = this.props.quakes.map((quake, i) =>{
-				<Marker title={quake.properties.title} 
+				console.log(quake);
+				return (<Marker key={i} title={quake.properties.title} 
 					name={quake.properties.place}
-					position={{lat: quake.geometry.coordinates[0],
-							lng: quake.geometry.coordinates[1]
+					position={{lat: quake.geometry.coordinates[1],
+							lng: quake.geometry.coordinates[0]
 					}}
-					icon={{
-						url: '../public/images/throbber.gif'
-					}} />
+					/*icon={{
+						url: 'images/earthquake.png'
+					}}*/ />)
 			});
+			console.log(allQuakes)
 		return(
 			<Map google={this.props.google}
 				initialCenter={{lat:39.7392, lng: -104.9903}}
-				zoom={14}>
+				zoom={14}
+				style={{width: '76%', height:'100%', position: 'relative' }}
+			>
 				{allQuakes}	
 			</Map>
 		);
