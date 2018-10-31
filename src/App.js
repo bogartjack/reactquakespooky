@@ -1,4 +1,6 @@
 import React, { Component } from 'react';
+import MapComponent from './MapComponent';
+import QuakeList from './QuakeList';
 
 class App extends Component {
 	constructor(){
@@ -9,7 +11,7 @@ class App extends Component {
 	}
 	componentDidMount(){
 		getQuakes().then((data) =>{
-			this.setState(quakes: data);
+			this.setState({quakes: data});
 		}).catch((err)=>{console.log(err));
 	}
 	getQuakes = () =>{
